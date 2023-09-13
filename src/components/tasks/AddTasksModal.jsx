@@ -1,8 +1,11 @@
+import Modal from "../Ui/Modal"
 
 
-function AddTasksModal() {
+function AddTasksModal({isOpen, setIsOpen}) {
   return (
-    <div>AddTasksModal</div>
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={'sifat'}>
+            <p>lorem30</p>
+            </Modal>
   )
 }
 
