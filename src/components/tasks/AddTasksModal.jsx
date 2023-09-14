@@ -6,11 +6,18 @@ function AddTasksModal({isOpen, setIsOpen}) {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm()
+  const onCancel=()=>{
+    reset();
+    setIsOpen(false)
+  }
 
   const onSubmit = (data) => {
-    console.log(data)
+    console.log(data);
+    reset();
+    setIsOpen(false)
   }
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={'sifat'}>
@@ -44,10 +51,21 @@ function AddTasksModal({isOpen, setIsOpen}) {
               </select>
               {errors.exampleRequired && <span>{errors}</span>}
             </div>
+
+            <div className="flex flex-col mb-5 ">
+              <label htmlFor="title">Priority</label>
+              <select  id="priority" {...register("priority")}>
+              <option defaultValue="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+              
+              </select>
+              {errors.exampleRequired && <span>{errors}</span>}
+            </div>
       
-        <div className="flex mt-5">
-      <input className="btn btn-danger " type="submit" />
-      <input className="btn btn-primary " type="submit" />
+        <div className="flex gap-3 justify-end">
+          <button onClick={onCancel} type="button" className="btn btn-danger">Cancel</button>
+          <button type="submit" className="btn btn-primary">Submit</button>
         </div>
     </form>
             </Modal>
