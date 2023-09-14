@@ -15,15 +15,23 @@ function AddTasksModal({isOpen, setIsOpen}) {
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={'sifat'}>
             <form onSubmit={handleSubmit(onSubmit)}>
-    
-      <input defaultValue="test" {...register("example")} />
 
-  
-      <input {...register("exampleRequired", { required: true })} />
-    
-      {errors.exampleRequired && <span>This field is required</span>}
+            <div className="flex flex-col mb-5  ">
+              <label htmlFor="title">Title</label>
+              <input className="w-full rounded-md" type="text" id="title" {...register("name")} />
+              {errors.exampleRequired && <span>{errors}</span>}
+            </div>
 
-      <input type="submit" />
+            <div className="flex flex-col mb-5 ">
+              <label htmlFor="title">Description</label>
+              <input className="w-full rounded-md" type="text" id="description" {...register("description")} />
+              {errors.exampleRequired && <span>{errors}</span>}
+            </div>
+      
+        <div className="flex mt-5">
+      <input className="btn btn-danger " type="submit" />
+      <input className="btn btn-primary " type="submit" />
+        </div>
     </form>
             </Modal>
   )
