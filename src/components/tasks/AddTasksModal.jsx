@@ -27,6 +27,23 @@ function AddTasksModal({isOpen, setIsOpen}) {
               <input className="w-full rounded-md" type="text" id="description" {...register("description")} />
               {errors.exampleRequired && <span>{errors}</span>}
             </div>
+
+            <div className="flex flex-col mb-5 ">
+              <label htmlFor="title">Deadline</label>
+              <input className="w-full rounded-md" type="date" id="date" {...register("date")} />
+              {errors.exampleRequired && <span>{errors}</span>}
+            </div>
+
+            <div className="flex flex-col mb-5 ">
+              <label htmlFor="title">Assign To</label>
+              <select  id="assignedTo" {...register("assignedTo")}>
+              <option value="sifat">Sifat</option>
+              <option value="mir">Mir</option>
+              <option value="Mezba">Mezba</option>
+              <option value="Fahim">Fahim</option>
+              </select>
+              {errors.exampleRequired && <span>{errors}</span>}
+            </div>
       
         <div className="flex mt-5">
       <input className="btn btn-danger " type="submit" />
