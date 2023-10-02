@@ -62,7 +62,7 @@ function AddTasksModal({isOpen, setIsOpen}) {
             <div className="flex flex-col mb-5 ">
               <label htmlFor="title">Priority</label>
               <select  id="priority" {...register("priority")}>
-              <option defaultValue="high">High</option>
+              <option value="high">High</option>
               <option value="medium">Medium</option>
               <option value="low">Low</option>
               
